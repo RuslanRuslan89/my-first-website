@@ -6,6 +6,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<style>
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
 <!-- Переключатель тем -->
 <div class="theme-toggle">
     <button id="toggle-theme">Включить темную тему</button>
@@ -25,13 +37,15 @@
     </header>
 
     <section id="about">
+	<section id="about" class="fade-in">
+    
         <h2>О себе</h2>
         <p>Меня зовут Руслан. Я только начинаю изучать веб-разработку.</p>
         <img src="avatar.jpg" alt="Мое фото" width="200">
     </section>
 
-    <section id="skills">
-        <h2>Мои навыки</h2>
+    <section id="skills" class="fade-in">
+    <h2>Мои навыки</h2>
         <ul>
             <li>HTML</li>
             <li>CSS</li>
@@ -39,12 +53,35 @@
         </ul>
     </section>
 
-    <section id="contact">
-        <h2>Контакты</h2>
+    <section id="contact" class="fade-in">
+    <h2>Контакты</h2>
         <p>Если хотите связаться со мной, пишите мне:</p>
         <button onclick="alert('Спасибо за интерес!')">Написать мне</button>
     </section>
+<script>
+    function checkVisible(elm) {
+        const rect = elm.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        );
+    }
 
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach(el => {
+            if (checkVisible(el)) {
+                el.classList.add('visible');
+            } else {
+                el.classList.remove('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
+</script>
 </body>
 <script>
     const toggleButton = document.getElementById('toggle-theme');
