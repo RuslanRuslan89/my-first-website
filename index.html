@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<!-- Переключатель тем -->
+<div class="theme-toggle">
+    <button id="toggle-theme">Включить темную тему</button>
+</div>
     <!-- Навигационное меню -->
     <nav>
         <ul class="menu">
@@ -43,4 +46,26 @@
     </section>
 
 </body>
+<script>
+    const toggleButton = document.getElementById('toggle-theme');
+    const body = document.body;
+
+    // Проверяем сохранённое состояние темы
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        toggleButton.textContent = 'Включить светлую тему';
+    }
+
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            toggleButton.textContent = 'Включить светлую тему';
+        } else {
+            localStorage.setItem('theme', 'light');
+            toggleButton.textContent = 'Включить темную тему';
+        }
+    });
+</script>
 </html>
