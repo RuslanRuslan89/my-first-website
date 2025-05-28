@@ -6,15 +6,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Навигационное меню -->
+    <nav>
+        <ul class="menu">
+            <li><a href="#about">О себе</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+
     <header>
         <h1>Привет, мир!</h1>
         <p>Это мой первый сайт на GitHub Pages.</p>
     </header>
 
-    <section>
+    <section id="about">
         <h2>О себе</h2>
         <p>Меня зовут Руслан. Я только начинаю изучать веб-разработку.</p>
         <img src="avatar.jpg" alt="Мое фото" width="200">
     </section>
+
+    <section id="skills">
+        <h2>Мои навыки</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript (начинаю учить)</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Контакты</h2>
+        <p>Если хотите связаться со мной, пишите мне:</p>
+        <button onclick="alert('Спасибо за интерес!')">Написать мне</button>
+    </section>
+
 </body>
 </html>
