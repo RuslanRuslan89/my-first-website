@@ -250,3 +250,23 @@ footer {
 .gallery-images img:hover {
     transform: scale(1.05);
 }
+/* Стили для кнопки "Наверх" */
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#back-to-top:hover {
+    background-color: #45a049;
+}
